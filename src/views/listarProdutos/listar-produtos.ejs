@@ -1,0 +1,147 @@
+<%- include('../partials/header') %>
+
+    <main class="container py-4">
+        <h1 class="fw-bold mb-4" style="font-size: 2.5rem;">Bolinhas</h1>
+
+        <div class="row g-4">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3">
+                <div class="filtros p-3">
+                    <h2 class="fs-5 pb-2 mb-3">Filtros</h2>
+
+                    <div class="mb-4">
+                        <h3 class="fs-6 fw-bold mb-2">Categoria</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-1"><a href="#">Treino (4)</a></li>
+                            <li class="mb-1"><a href="#">Competição (8)</a></li>
+                            <li class="mb-1"><a href="#">3 Estrelas (5)</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="fs-6 fw-bold mb-2">Faixa de Preço</h3>
+                        <input type="range" value="50" class="form-range slider-preco">
+                        <p class="small text-muted">R$ 39,99 - R$ 259,99</p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h3 class="fs-6 fw-bold mb-2">Cor</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cor-branca" name="branca">
+                            <label class="form-check-label" for="cor-branca">Branca</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cor-laranja" name="laranja">
+                            <label class="form-check-label" for="cor-laranja">Laranja</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cor-duas" name="duas">
+                            <label class="form-check-label" for="cor-duas">As duas</label>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-filtrar text-white w-100 fw-semibold">Aplicar Filtros</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="col-lg-9">
+                <!-- Category Banner -->
+                <div class="banner-categoria mb-4">
+                    <img src="img/PittaPongJogadorBanner.png" alt="Banner da categoria Bolinhas">
+                    <div class="banner-texto">
+                        <h2>Jogue como um profissional com as bolinhas da PittaPong.</h2>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">ROIESK BALLS</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 39,99</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">OLDEN RACKET</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 229,99</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">ROIESK BALLS</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 39,99</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">OLDEN RACKET</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 229,99</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">ROIESK BALLS</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 39,99</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
+                            <a href="produto.html">
+                                <h3 class="mt-2">OLDEN RACKET</h3>
+                            </a>
+                            <a href="produto.html">
+                                <h4>PittaPong</h4>
+                            </a>
+                            <a href="produto.html">
+                                <p class="preco mt-2">R$ 229,99</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%- include('../partials/footer') %>
