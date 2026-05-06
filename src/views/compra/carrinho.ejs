@@ -9,7 +9,7 @@
                 <!-- Cart Item 1 -->
                 <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center py-3 border-bottom">
                     <div class="d-flex align-items-center gap-3">
-                        <img src="img/Olden Racket.png" alt="Olden Racket" class="item-imagem">
+                        <img src="/img/Olden Racket.png" alt="Olden Racket" class="item-imagem">
                         <div>
                             <p class="fw-semibold mb-1" style="font-size: 1.1rem;">Olden Racket</p>
                             <div class="d-flex align-items-center border rounded overflow-hidden" style="width: fit-content;">
@@ -25,7 +25,7 @@
                 <!-- Cart Item 2 -->
                 <div class="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center py-3 border-bottom">
                     <div class="d-flex align-items-center gap-3">
-                        <img src="img/Roiesk Balls.png" alt="Roiesk Balls" class="item-imagem">
+                        <img src="/img/Roiesk Balls.png" alt="Roiesk Balls" class="item-imagem">
                         <div>
                             <p class="fw-semibold mb-1" style="font-size: 1.1rem;">Roiesk Balls</p>
                             <div class="d-flex align-items-center border rounded overflow-hidden" style="width: fit-content;">
@@ -55,7 +55,7 @@
                         <p class="mb-0">Total</p>
                         <p class="mb-0">R$ 269,98</p>
                     </div>
-                    <button class="btn btn-prosseguir text-white w-100 fw-semibold py-3 mt-3" onclick="window.location.href='checkout.html'">Prosseguir</button>
+                    <button class="btn btn-prosseguir text-white w-100 fw-semibold py-3 mt-3" onclick="window.location.href='/checkout'">Prosseguir</button>
                 </div>
             </div>
         </div>
@@ -63,38 +63,20 @@
         <!-- More Items -->
         <h2 class="text-center fw-semibold mt-5 mb-4" style="font-size: 2rem;">Adicionar mais itens</h2>
         <div class="row g-4 mb-5 justify-content-center">
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                    <a href="produto.html"><h3 class="mt-2">ROIESK BALLS</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 39,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                    <a href="produto.html"><h3 class="mt-2">OLDEN RACKET</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 229,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                    <a href="produto.html"><h3 class="mt-2">ROIESK BALLS</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 39,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                    <a href="produto.html"><h3 class="mt-2">OLDEN RACKET</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 229,99</p></a>
-                </div>
-            </div>
+            <% if (typeof produtos !== 'undefined' && produtos && produtos.length > 0) { %>
+                <% produtos.forEach(produto => { %>
+                    <div class="col-6 col-md-3">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="<%= produto.imagens[0] %>" alt="<%= produto.nome %>"></div>
+                            <a href="/produto/<%= produto._id %>"><h3 class="mt-2"><%= produto.nome %></h3></a>
+                            <a href="/produto/<%= produto._id %>"><h4>PittaPong</h4></a>
+                            <a href="/produto/<%= produto._id %>"><p class="preco mt-2">R$ <%= produto.preco.toFixed(2).replace('.', ',') %></p></a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-center">Nenhum produto encontrado.</p>
+            <% } %>
         </div>
     </main>
 

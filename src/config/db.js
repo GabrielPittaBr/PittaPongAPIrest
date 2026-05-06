@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // String de conexão (em produção, use variáveis de ambiente .env)
-const uri = "mongodb://localhost:27017/pittapong-db";
+const uri = process.env.MONGO_URI;
 
 const conectarDB = async () => {
     try {

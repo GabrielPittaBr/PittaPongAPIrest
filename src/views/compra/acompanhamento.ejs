@@ -50,7 +50,7 @@
         <div class="mx-auto" style="max-width: 900px;">
             <!-- Item 1 -->
             <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="img/Olden Racket.png" alt="Olden Racket" class="resumo-item-imagem">
+                <img src="/img/Olden Racket.png" alt="Olden Racket" class="resumo-item-imagem">
                 <div class="flex-grow-1">
                     <p class="fw-semibold mb-0">Olden Racket</p>
                     <span class="text-muted small">Quantidade: 1</span>
@@ -60,7 +60,7 @@
 
             <!-- Item 2 -->
             <div class="d-flex align-items-center gap-3 mb-3">
-                <img src="img/Roiesk Balls.png" alt="Roiesk Balls" class="resumo-item-imagem">
+                <img src="/img/Roiesk Balls.png" alt="Roiesk Balls" class="resumo-item-imagem">
                 <div class="flex-grow-1">
                     <p class="fw-semibold mb-0">Roiesk Balls</p>
                     <span class="text-muted small">Quantidade: 1</span>
@@ -92,38 +92,20 @@
         <!-- More Products -->
         <h2 class="text-center fw-semibold mt-5 mb-4" style="font-size: 2rem;">Conferir mais produtos</h2>
         <div class="row g-4 mb-5 justify-content-center">
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                    <a href="produto.html"><h3 class="mt-2">ROIESK BALLS</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 39,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                    <a href="produto.html"><h3 class="mt-2">OLDEN RACKET</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 229,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                    <a href="produto.html"><h3 class="mt-2">ROIESK BALLS</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 39,99</p></a>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="produto-card">
-                    <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                    <a href="produto.html"><h3 class="mt-2">OLDEN RACKET</h3></a>
-                    <a href="produto.html"><h4>PittaPong</h4></a>
-                    <a href="produto.html"><p class="preco mt-2">R$ 229,99</p></a>
-                </div>
-            </div>
+            <% if (typeof produtos !== 'undefined' && produtos && produtos.length > 0) { %>
+                <% produtos.forEach(produto => { %>
+                    <div class="col-6 col-md-3">
+                        <div class="produto-card">
+                            <div class="produto-img-wrapper"><img src="<%= produto.imagens[0] %>" alt="<%= produto.nome %>"></div>
+                            <a href="/produto/<%= produto._id %>"><h3 class="mt-2"><%= produto.nome %></h3></a>
+                            <a href="/produto/<%= produto._id %>"><h4>PittaPong</h4></a>
+                            <a href="/produto/<%= produto._id %>"><p class="preco mt-2">R$ <%= produto.preco.toFixed(2).replace('.', ',') %></p></a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p class="text-center">Nenhum produto encontrado.</p>
+            <% } %>
         </div>
     </main>
 

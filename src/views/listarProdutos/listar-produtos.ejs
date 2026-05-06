@@ -48,97 +48,35 @@
             <div class="col-lg-9">
                 <!-- Category Banner -->
                 <div class="banner-categoria mb-4">
-                    <img src="img/PittaPongJogadorBanner.png" alt="Banner da categoria Bolinhas">
+                    <img src="/img/PittaPongJogadorBanner.png" alt="Banner da categoria Bolinhas">
                     <div class="banner-texto">
                         <h2>Jogue como um profissional com as bolinhas da PittaPong.</h2>
                     </div>
                 </div>
 
                 <div class="row g-3">
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">ROIESK BALLS</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 39,99</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">OLDEN RACKET</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 229,99</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">ROIESK BALLS</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 39,99</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">OLDEN RACKET</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 229,99</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Roiesk Balls.png" alt="Roiesk Balls"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">ROIESK BALLS</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 39,99</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4">
-                        <div class="produto-card">
-                            <div class="produto-img-wrapper"><img src="img/Olden Racket.png" alt="Olden Racket"></div>
-                            <a href="produto.html">
-                                <h3 class="mt-2">OLDEN RACKET</h3>
-                            </a>
-                            <a href="produto.html">
-                                <h4>PittaPong</h4>
-                            </a>
-                            <a href="produto.html">
-                                <p class="preco mt-2">R$ 229,99</p>
-                            </a>
-                        </div>
-                    </div>
+                    <% if (typeof produtos !== 'undefined' && produtos && produtos.length > 0) { %>
+                        <% produtos.forEach(produto => { %>
+                            <div class="col-6 col-md-4">
+                                <div class="produto-card">
+                                    <div class="produto-img-wrapper">
+                                        <img src="<%= produto.imagens[0] %>" alt="<%= produto.nome %>">
+                                    </div>
+                                    <a href="/produto/<%= produto._id %>">
+                                        <h3 class="mt-2"><%= produto.nome %></h3>
+                                    </a>
+                                    <a href="/produto/<%= produto._id %>">
+                                        <h4>PittaPong</h4>
+                                    </a>
+                                    <a href="/produto/<%= produto._id %>">
+                                        <p class="preco mt-2">R$ <%= produto.preco.toFixed(2).replace('.', ',') %></p>
+                                    </a>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <p class="text-center">Nenhum produto encontrado.</p>
+                    <% } %>
                 </div>
             </div>
         </div>

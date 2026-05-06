@@ -1,0 +1,63 @@
+const Produto = require('../models/productModels');
+const cloudinary = require('../config/cloudinary');
+const streamifier = require('streamifier');
+
+// função pra enviar pro cloudinary
+const uploadToCloudinary = (buffer) => {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      { folder: 'produtos' },
+      (error, result) => {
+        if (result) resolve(result);
+        else reject(error);
+      }
+    );
+    streamifier.createReadStream(buffer).pipe(stream);
+  });
+};
+
+// GET /produtos - listar todos
+exports.listarProdutos = async (req, res) => {
+  try {
+    const produtos = await Produto.find().sort({ createdAt: -1 });
+    res.json(produtos);
+  } catch (err) {
+    res.status(500).json({ erro: err.message });
+  }
+};
+
+// GET /vender - renderizar formulário
+exports.getVender = (req, res) => {
+  const sucesso = req.query.sucesso === 'true';
+  const erro = req.query.erro || null;
+  res.render('venda/vender', { title: 'PittaPong - Vender', sucesso, erro });
+};
+
+// POST /produtos - criar produto
+exports.criarProduto = async (req, res) => {
+  try {
+    const urls = [];
+
+    // Se tiver arquivos, envia pro Cloudinary
+    if (req.files && req.files.length > 0) {
+      for (const file of req.files) {
+        const result = await uploadToCloudinary(file.buffer);
+        urls.push(result.secure_url);
+      }
+    }
+
+    const produto = new Produto({
+      nome: req.body.nome,
+      preco: req.body.preco,
+      descricao: req.body.descricao,
+      imagens: urls
+    });
+
+    await produto.save();
+
+    // Redireciona de volta ao formulário com mensagem de sucesso
+    res.redirect('/vender?sucesso=true');
+  } catch (err) {
+    res.redirect(`/vender?erro=${encodeURIComponent(err.message)}`);
+  }
+};

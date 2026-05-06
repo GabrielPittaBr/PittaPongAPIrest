@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/pagesControllers');
+const pagesController = require('../controllers/pagesControllers');
 
-// Mapeamento dos verbos HTTP para as funções do controller
-router.get('/', controller.getProdutos);      // GET /produtos
-router.post('/', controller.createProduto);   // POST /produtos
-router.delete('/:id', controller.deleteProduto); // DELETE /produtos/1
+router.get('/', pagesController.getHome);
+router.get('/produtos/listar', pagesController.getListarProdutos);
+router.get('/produto/:id', pagesController.getProdutoDetalhe);
+router.get('/carrinho', pagesController.getCarrinho);
+router.get('/login', pagesController.getLogin);
 
 module.exports = router;
