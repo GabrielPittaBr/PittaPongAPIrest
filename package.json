@@ -1,0 +1,35 @@
+{
+  "name": "pittapong2.0",
+  "version": "1.0.0",
+  "description": "Versão atualizada e funcional do meu antigo trabalho, PittaPong, um site e-commerce de artigos esportivos de tênis de mesa. Trabalho: Desenvolvimento de API REST Escalável com Node.js e MongoDB1.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielPittaBr/PittaPong2.0.git"
+  },
+  "keywords": [],
+  "author": "Gabriel Pitta",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GabrielPittaBr/PittaPong2.0/issues"
+  },
+  "homepage": "https://github.com/GabrielPittaBr/PittaPong2.0#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "body-parser": "^2.2.2",
+    "cloudinary": "^2.10.0",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.6.1",
+    "multer": "^2.1.1",
+    "prettier": "^3.8.3",
+    "streamifier": "^0.1.1"
+  }
+}
