@@ -66,9 +66,18 @@ Acesse o projeto em seu navegador: [http://localhost:3000](http://localhost:3000
 - `POST /produtos/:id/editar` - Endpoint específico para edição de produto via formulário web (suporta envio de novas imagens).
 
 ### Usuários (Autenticação)
-- `POST /usuario/cadastrar` - Registra um novo usuário no sistema. As senhas são protegidas e armazenadas usando criptografia BCrypt.
+- `POST /usuario/cadastro` - Registra um novo usuário no sistema. As senhas são protegidas e armazenadas usando criptografia BCrypt.
 - `POST /usuario/login` - Autentica um usuário existente e gera um token JWT armazenado em um cookie de sessão httpOnly.
 - `GET /usuario/logout` - Encerra a sessão atual do usuário, invalidando/limpando o cookie JWT.
+
+## Como Testar a API (Talend API Tester / Postman)
+
+Utilize o protocolo `http://` para acessar `http://localhost:3000`. Como a aplicação utiliza *cookies httpOnly* para a autenticação, siga a ordem correta para testar rotas protegidas:
+
+1. **Autenticação Primeiro**: Realize a requisição `POST http://localhost:3000/usuario/login` com os dados em JSON (ex: `{"email": "seu@email.com", "senha": "suasenha"}`). Se for bem-sucedido, o cliente REST irá salvar o cookie com o JWT automaticamente na sessão.
+2. **Criar ou Editar Produto**: Estas requisições recebem envio de arquivos. Portanto, no corpo (body) da requisição, em vez de JSON, você deve utilizar o formato **Multipart Form** (ou *Form Data*), para poder colocar arquivos como imagens. 
+   - Adicione parâmetros de texto: `nome`, `preco`, `descricao`, `categoria`.
+   - Adicione parâmetro de arquivo: crie um campo chamado `imagens`, altere o tipo para `File` e selecione uma imagem do seu computador.
 
 ## Governança e Boas Práticas
 - **Arquitetura MVC:** O código fonte segue rigorosamente a separação de responsabilidades (Models, Views e Controllers) localizada no diretório `/src`.
