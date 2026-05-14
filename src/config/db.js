@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// String de conexão (em produção, use variáveis de ambiente .env)
 const uri = process.env.MONGO_URI;
 
 const conectarDB = async () => {
@@ -8,8 +7,8 @@ const conectarDB = async () => {
         await mongoose.connect(uri);
         console.log("Conectado ao MongoDB com sucesso!");
     } catch (error) {
-        console.error("❌ Erro ao conectar ao MongoDB:", error.message);
-        process.exit(1); // Encerra a aplicação em caso de falha crítica
+        console.error("Erro ao conectar ao MongoDB:", error.message);
+        process.exit(1); // Encerra a aplicação
     }
 };
 

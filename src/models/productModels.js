@@ -20,6 +20,11 @@ const ProdutoSchema = new mongoose.Schema({
     required: true,
     maxlength: 200
   },
+  categoria: {
+    type: String,
+    enum: ['Raquetes', 'Bolinhas', 'Redes', 'Acessórios', 'Outros'],
+    default: 'Outros'
+  },
   imagens: [String] // URLs do Cloudinary
 }, { timestamps: true });
 

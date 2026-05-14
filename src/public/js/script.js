@@ -1,11 +1,11 @@
-/* ===== Product gallery – thumbnail carousel ===== */
+// Carrossel das imagens do produto
 (function () {
     const gallery = document.querySelector('.galeria-miniaturas');
     if (!gallery) return;
 
     const mainImg = document.getElementById('imagem-produto-principal');
-    const thumbs  = Array.from(gallery.querySelectorAll('.miniatura-item'));
-    let current   = 0;
+    const thumbs = Array.from(gallery.querySelectorAll('.miniatura-item'));
+    let current = 0;
     let timer;
 
     function activate(index) {

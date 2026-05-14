@@ -12,8 +12,14 @@ exports.getHome = async (req, res) => {
 
 exports.getListarProdutos = async (req, res) => {
     try {
-        const produtos = await Produto.find().sort({ createdAt: -1 });
-        res.render('listarProdutos/listar-produtos', { title: 'PittaPong - Produtos', produtos });
+        const categoriaFiltro = req.query.categoria || null;
+        const query = categoriaFiltro ? { categoria: categoriaFiltro } : {};
+        const produtos = await Produto.find(query).sort({ createdAt: -1 });
+        res.render('listarProdutos/listar-produtos', {
+            title: categoriaFiltro ? `PittaPong - ${categoriaFiltro}` : 'PittaPong - Produtos',
+            produtos,
+            categoriaAtiva: categoriaFiltro
+        });
     } catch (err) {
         console.error('Erro getListarProdutos:', err.message);
         res.status(500).send("Erro ao carregar produtos");

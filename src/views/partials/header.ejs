@@ -44,7 +44,6 @@
                             <a href="/carrinho"><i class="fa-solid fa-cart-shopping"></i></a>
 
                             <% if (typeof user !== 'undefined' && user) { %>
-                                <!-- Se o usuário estiver logado mostra esse dropdown -->
                                 <div class="dropdown">
                                     <button type="button" class="btn user-menu-toggle d-flex align-items-center" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="fa-solid fa-user-check"></i>
@@ -79,10 +78,10 @@
             <div class="container">
                 <nav class="d-flex justify-content-center gap-2 gap-md-4  flex-wrap">
                     <a href="/produtos/listar"><i class="fa-sharp fa-solid fa-bars"></i></a>
-                    <a href="/produtos/listar">RAQUETES</a>
-                    <a href="/produtos/listar">BOLINHAS</a>
-                    <a href="/produtos/listar">REDES</a>
-                    <a href="/produtos/listar">ACESSÓRIOS</a>
+                    <a href="/produtos/listar?categoria=Raquetes">RAQUETES</a>
+                    <a href="/produtos/listar?categoria=Bolinhas">BOLINHAS</a>
+                    <a href="/produtos/listar?categoria=Redes">REDES</a>
+                    <a href="/produtos/listar?categoria=Acessórios">ACESSÓRIOS</a>
                 </nav>
             </div>
         </div>

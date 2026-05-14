@@ -39,6 +39,17 @@
                 </div>
 
                 <div class="mb-3">
+                    <label class="form-label">Categoria</label>
+                    <select name="categoria" class="form-select" required>
+                        <option value="Raquetes" <%= produto.categoria === 'Raquetes' ? 'selected' : '' %>>Raquetes</option>
+                        <option value="Bolinhas" <%= produto.categoria === 'Bolinhas' ? 'selected' : '' %>>Bolinhas</option>
+                        <option value="Redes" <%= produto.categoria === 'Redes' ? 'selected' : '' %>>Redes</option>
+                        <option value="Acessórios" <%= produto.categoria === 'Acessórios' ? 'selected' : '' %>>Acessórios</option>
+                        <option value="Outros" <%= produto.categoria === 'Outros' || !produto.categoria ? 'selected' : '' %>>Outros</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
                     <label class="form-label">Descrição</label>
                     <textarea name="descricao" class="form-control" rows="4" maxlength="200" required id="input-descricao"><%= produto.descricao %></textarea>
                     <div class="d-flex justify-content-end">

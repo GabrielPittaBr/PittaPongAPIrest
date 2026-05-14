@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const Usuario = require('../models/userModels');
 
-// Optional auth: populates req.user if token present, but does NOT block the request
+// Autenticação opcional: verifica req.user se o token estiver presente, mas não bloqueia a requisição
 module.exports = async (req, res, next) => {
   res.locals.user = null;
 
@@ -25,7 +25,7 @@ module.exports = async (req, res, next) => {
       res.locals.user = usuario;
     }
   } catch {
-    // Token invalid/expired – just continue without user
+    // Token inválido ou expirado – apenas continua sem usuário
   }
 
   next();

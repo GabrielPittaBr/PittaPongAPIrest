@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = (req, res, next) => {
-  // Try Authorization header first, then cookie
+  // Tenta pegar o header Authorization primeiro, depois o cookie
   const authHeader = req.headers.authorization;
   let token = null;
 

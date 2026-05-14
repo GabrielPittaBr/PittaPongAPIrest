@@ -50,6 +50,7 @@ exports.criarProduto = async (req, res) => {
       nome: req.body.nome,
       preco: req.body.preco,
       descricao: req.body.descricao,
+      categoria: req.body.categoria || 'Outros',
       imagens: urls,
       usuario: req.userId
     });
@@ -78,6 +79,7 @@ exports.editarProdutoForm = async (req, res) => {
     produto.nome = req.body.nome || produto.nome;
     produto.preco = req.body.preco || produto.preco;
     produto.descricao = req.body.descricao || produto.descricao;
+    produto.categoria = req.body.categoria || produto.categoria;
 
     // If new images were uploaded, replace the old ones
     if (req.files && req.files.length > 0) {
