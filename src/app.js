@@ -19,7 +19,7 @@ app.use('/usuario', usuarioRoutes);
 app.get('/', (req, res) => {
   res.json({
     api: 'PittaPong REST API',
-    versao: '2.0',
+    versao: '2.0.0',
     endpoints: {
       usuario: {
         'POST /usuario/cadastro': 'Registrar novo usuário',
